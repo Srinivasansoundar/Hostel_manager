@@ -2,9 +2,10 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div>
-      
-    </div>
+   <>
+   <header>
+    <h1> Hostel Ease Manager </h1>
+    </header></>
   )
 }
 
