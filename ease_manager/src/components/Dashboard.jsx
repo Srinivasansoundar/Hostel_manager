@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
    <>
    <header>
-    <h1> Hostel Ease Manager </h1>
+    <h1 className="text-lg text-red-200" > Hostel Ease Manager </h1>
     </header></>
   )
 }
