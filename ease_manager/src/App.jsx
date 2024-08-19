@@ -5,7 +5,8 @@ import Login from "./pages/Login"
 import Member_details from "./pages/Member_details"
 import Member_details_3 from "./pages/Member_details_3"
 import Home from "./pages/Home"
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 function App() {
   return (
     <BrowserRouter>
