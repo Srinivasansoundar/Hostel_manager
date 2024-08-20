@@ -7,7 +7,7 @@ import Floor from './Floor';
 function Block() {
     return (
         <div class='Bl border-2 flex'>
-            <div className="lef h-full">
+            <div className="lef w-fit h-full">
                 <Card
                     className="ca max-w-sm rounded"
                     imgAlt="Meaningful alt text for an image that is not purely decorative"
