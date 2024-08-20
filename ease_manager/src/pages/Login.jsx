@@ -28,7 +28,7 @@ export default function Login() {
 
           <div className="flex justify-between w-full mt-2">
             <p className="text-black cursor-pointer text-sm">Forgot Password?</p>
-            <button className="bg-darkblue text-white py-1 px-5 border-none rounded cursor-pointer text-lg transition-colors duration-300 hover:bg-blue-900">
+            <button className="bg-darkblue text-white py-1 px-5 border-none rounded cursor-pointer text-lg transition-colors duration-300 bg-blue-900">
               Login
             </button>
           </div>
