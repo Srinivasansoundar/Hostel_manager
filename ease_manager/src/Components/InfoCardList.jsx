@@ -3,7 +3,7 @@ import { FaUsers, FaBuilding, FaCheckCircle, FaBullseye } from 'react-icons/fa';
 
 const InfoCard = ({ icon, label, value }) => {
     return (
-            <div className="flex items-center p-4 border-r-2 border-gray-200 rounded shadow-sm w-50 h-16">
+            <div className="flex items-center px-2.5 border-r-2 border-gray-200 rounded shadow-sm w-50 h-16">
                 <div className="w-10 h-10 flex items-center justify-center rounded bg-blue-100 text-blue-500 mr-3">
                     {icon}
                 </div>

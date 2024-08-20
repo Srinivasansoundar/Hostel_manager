@@ -12,17 +12,17 @@ const Dashboard = () => {
     <header className="flex">
       <div className=' sidebar block  w-1/5 h-screen border-2'>
         <Sidebar className='side w-full' aria-label="Sidebar with logo branding example">
-          <Sidebar.Logo href="#" className='' img="./psg_icon.jpg" imgAlt="Flowbite logo">
+          <Sidebar.Logo href="/" className='' img="./psg_icon.jpg" imgAlt="Flowbite logo">
             PSG Hostel
           </Sidebar.Logo>
           <Sidebar.Items className=''>
             <Sidebar.ItemGroup>
-              <Sidebar.Item href="#" icon={HiChartPie}>
+              <Sidebar.Item href="/" icon={HiChartPie}>
                 Dashboard
               </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiViewBoards}>
+              {/* <Sidebar.Item href="#" icon={HiViewBoards}>
                 Room allocation
-              </Sidebar.Item>
+              </Sidebar.Item> */}
               <Sidebar.Item href="#" icon={HiInbox}>
                 Complaints
               </Sidebar.Item>

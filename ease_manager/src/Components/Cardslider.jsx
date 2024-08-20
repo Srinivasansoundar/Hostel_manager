@@ -33,7 +33,7 @@ const Cardslider = () => {
   const cardsData = [
     {
       image: './fees.jpg',
-      title: 'HOSTEL DAY',
+      title: 'FEES PAYMENT',
       date: '27/06/24',
       description: 'We are excited to announce that our college will be hosting its Hostel Day celebrations...',
     },
