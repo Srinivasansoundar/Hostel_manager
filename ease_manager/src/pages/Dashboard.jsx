@@ -10,8 +10,8 @@ import Block from '../Components/Block';
 const Dashboard = () => {
   return (
     <header className="flex">
-      <div className=' sidebar block  w-1/5 h-screen border-2'>
-        <Sidebar className='side w-full' aria-label="Sidebar with logo branding example">
+      <div className=' side sidebar block  w-1/5 h-screen border-2'>
+        <Sidebar className='w-full' aria-label="Sidebar with logo branding example">
           <Sidebar.Logo href="/" className='' img="./psg_icon.jpg" imgAlt="Flowbite logo">
             PSG Hostel
           </Sidebar.Logo>
@@ -42,7 +42,7 @@ const Dashboard = () => {
           </Sidebar.Items>
         </Sidebar>
       </div>
-      <div className="right bg-gray-50 w-4/5 h-screen flex flex-col">
+      <div className="ri bg-gray-50 w-4/5 h-screen flex flex-col">
         <Navbar className='navbar font-bold text-xl bg-gray-50 border-b-2 '>
           <div className='flex justify-around w-full'>
             <h1 className='leading-9'>Hostel Room Booking</h1>

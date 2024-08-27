@@ -2,6 +2,25 @@
     height: 250px !important;
 }
 .sli{
-    margin-top: 1em !important;
+    margin-top:1em !important;
     border-radius: 20px !important;
+}
+.slick-prev{
+    background-color: deepskyblue;
+    border-radius: 50%;
+    left:0;
+    z-index:1;
+
+}
+.slick-next{
+    background-color: deepskyblue;
+    border-radius: 50%;
+    right:0;
+    z-index:1;
+
+}
+.slick-prev:hover, .slick-prev:active, .slick-prev:focus,
+.slick-next:hover, .slick-next:active, .slick-next:focus {
+    background-color: deepskyblue;
+    border-radius: 50%;
 }

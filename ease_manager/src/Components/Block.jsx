@@ -36,7 +36,7 @@ function Block() {
                     </div>
                 </Card>
             </div>
-            <div className="ri">
+            <div className="r">
                 <div>
                     <h1 className='text-2xl font-bold text-blue-900'>Block Q</h1>
                     <InfoCardList/>
