@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from "react-router-dom"
 export default function Login() {
   return (
     <div className="flex h-screen">
@@ -25,11 +25,12 @@ export default function Login() {
             <h3 className="text-black font-bold">Password</h3>
             <input type="text" className="p-1 w-full border border-gray-300 rounded mt-1 box-border" />
           </div>
-
+          
           <div className="flex justify-between w-full mt-2">
             <p className="text-black cursor-pointer text-sm">Forgot Password?</p>
             <button className="bg-darkblue text-white py-1 px-5 border-none rounded cursor-pointer text-lg transition-colors duration-300 bg-blue-900">
-              Login
+                 
+                 <a href="/Dashboard">Login</a>
             </button>
           </div>
         </div>

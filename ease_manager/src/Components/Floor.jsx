@@ -14,7 +14,7 @@ function Floor({no,rooms,vacant}) {
         </div>
         <div>
             <Button color="blue" className='rounded'>
-                Book
+             Book
             </Button>
         </div>
     </div>
