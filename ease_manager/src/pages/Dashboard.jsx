@@ -57,9 +57,11 @@ const Dashboard = () => {
               </form>
             </div>
             <div>
+              <a href="/Waiting_list">
               <Button color="blue" className='rounded'>
-                Waiting List
+                 Waiting List
               </Button>
+              </a>
             </div>
             <hr className='hr' />
             <div className="flex flex-wrap gap-2">

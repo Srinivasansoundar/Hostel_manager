@@ -28,10 +28,11 @@ export default function Login() {
           
           <div className="flex justify-between w-full mt-2">
             <p className="text-black cursor-pointer text-sm">Forgot Password?</p>
+            <a href="/Dashboard">
             <button className="bg-darkblue text-white py-1 px-5 border-none rounded cursor-pointer text-lg transition-colors duration-300 bg-blue-900">
-                 
-                 <a href="/Dashboard">Login</a>
+                Login
             </button>
+            </a>
           </div>
         </div>
       </div>
