@@ -1,0 +1,222 @@
+module.exports = [
+    {
+      name: "Alice Johnson",
+      year: 3,
+      rollNumber: "22N101",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_1"
+    },
+    {
+      name: "Bob Smith",
+      year: 3,
+      rollNumber: "22N102",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_2"
+    },
+    {
+      name: "Charlie Brown",
+      year: 3,
+      rollNumber: "22N103",
+      department: "IT",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_3"
+    },
+    {
+      name: "David Lee",
+      year: 2,
+      rollNumber: "23N104",
+      department: "Civil",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_4"
+    },
+    {
+      name: "Eva Green",
+      year: 2,
+      rollNumber: "23N105",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_5"
+    },
+    {
+      name: "Frank Martin",
+      year: 3,
+      rollNumber: "22N106",
+      department: "IT",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_6"
+    },
+    {
+      name: "Grace Kim",
+      year: 4,
+      rollNumber: "21N107",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_7"
+    },
+    {
+      name: "Henry Park",
+      year: 4,
+      rollNumber: "21N108",
+      department: "Civil",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_8"
+    },
+    {
+      name: "Isabella Turner",
+      year: 3,
+      rollNumber: "22N109",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_9"
+    },
+    {
+      name: "Jack Williams",
+      year: 2,
+      rollNumber: "23N110",
+      department: "Civil",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_10"
+    },
+    {
+      name: "Kevin Adams",
+      year: 4,
+      rollNumber: "21N111",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_11"
+    },
+    {
+      name: "Lily James",
+      year: 4,
+      rollNumber: "21N112",
+      department: "IT",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_12"
+    },
+    {
+      name: "Michael Scott",
+      year: 3,
+      rollNumber: "22N113",
+      department: "Civil",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_13"
+    },
+    {
+      name: "Nancy Drew",
+      year: 2,
+      rollNumber: "23N114",
+      department: "IT",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_14"
+    },
+    {
+      name: "Oliver Queen",
+      year: 4,
+      rollNumber: "21N115",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_15"
+    },
+    {
+      name: "Peter Parker",
+      year: 2,
+      rollNumber: "23N116",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_16"
+    },
+    {
+      name: "Quinn Foster",
+      year: 3,
+      rollNumber: "22N117",
+      department: "IT",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_17"
+    },
+    {
+      name: "Rachel Green",
+      year: 4,
+      rollNumber: "21N118",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_18"
+    },
+    {
+      name: "Steve Rogers",
+      year: 2,
+      rollNumber: "23N119",
+      department: "Civil",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_19"
+    },
+    {
+      name: "Tony Stark",
+      year: 4,
+      rollNumber: "21N120",
+      department: "CSE",
+      roomNumber: "",
+      block: "",
+      floor: "",
+      roommates: [],
+      password: "hashed_password_20"
+    }
+  ];
