@@ -6,7 +6,7 @@ const dotenv=require("dotenv")
 dotenv.config()
 module.exports.signin=async(req,res,next)=>{
     const {rollnum,password}=req.body;
-    console.log(rollnum)
+    // console.log(rollnum)
     if(!rollnum || !password || rollnum==='' ||password===''){
        next(errorHandler(400,"All fields are required"));
     }

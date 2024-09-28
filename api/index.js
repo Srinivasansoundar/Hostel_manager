@@ -15,8 +15,9 @@ mongoose
     console.log(err);
   });
 app.use(express.json())
+// app.use(express.urlencoded)
 app.use("/student",studentRoutes)
-app.use("",authroutes)
+app.use("/api",authroutes)
 
 
 app.use((err,req,res,next)=>{
