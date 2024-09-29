@@ -1,9 +1,11 @@
-import React ,{useState} from 'react';
+import React ,{useState,useContext} from 'react';
 import {Link,useNavigate} from "react-router-dom"
 import {Button,Alert,Spinner} from "flowbite-react"
 import { useDispatch,useSelector} from 'react-redux';
 import { signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice';
+// import { DataContext } from '../Datacontext';
 export default function Login() {
+  // const { data,setData } = useContext(DataContext);
   const [formData,setFormData]=useState({});
   const dispatch=useDispatch()
   const {loading,error:errorMessage}=useSelector((state) => state.user)  
@@ -14,7 +16,7 @@ export default function Login() {
       return dispatch(signInFailure("Please fill out all fields"))
     }
     try{
-     dispatch(signInStart)
+     dispatch(signInStart())
     const res=await fetch('/api/signin',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -26,6 +28,7 @@ export default function Login() {
     }
     
     if(res.ok){
+      // setData(data);
       dispatch(signInSuccess(data));
       navigate('/dashboard')
     }
@@ -39,6 +42,7 @@ export default function Login() {
     setFormData({...formData,[e.target.id]:e.target.value})
    
   }
+
   //console.log(formData)
   return (
     <div className="flex h-screen">

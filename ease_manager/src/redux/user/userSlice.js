@@ -21,7 +21,12 @@ const userSlice=createSlice({
             state.loading=false;
             state.error=action.payload;
         },
+        updateAvailableBlocks: (state, action) => {
+            if (state.currentUser) {
+                state.currentUser.availableBlocks = action.payload;
+            }
+        }
     }
 })
-export const {signInStart,signInSuccess,signInFailure}=userSlice.actions;
+export const {signInStart,signInSuccess,signInFailure,updateAvailableBlocks}=userSlice.actions;
 export default userSlice.reducer;

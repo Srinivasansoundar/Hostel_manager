@@ -6,6 +6,7 @@ import Member_details from "./pages/Member_details"
 import Member_details_3 from "./pages/Member_details_3"
 import Home from "./pages/Home"
 import WaitingList from "./pages/Waitinglist"
+import BookingForm from "./pages/Booking"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element ={<Login/>}/> 
       <Route path="/Member_details" element ={<Member_details/>}/>
       <Route path="/Member_details_3" element ={<Member_details_3/>}/>  
+      <Route path="/booking_form" element ={<BookingForm/>}/>  
       <Route path="/Waiting_list" element ={<WaitingList/>}/>  
 
       {/* <Route path="/room_allocation" element ={<SignIn/>}/> */}

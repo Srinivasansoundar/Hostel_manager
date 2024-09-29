@@ -16,12 +16,12 @@ const InfoCard = ({ icon, label, value }) => {
     );
 };
 
-const InfoCardList = () => {
+const InfoCardList = ({bl}) => {
     const cardData = [
-        { icon: <FaUsers />, label: 'Sharing', value: '2' },
-        { icon: <FaBuilding />, label: 'No of floors', value: '6' },
-        { icon: <FaCheckCircle />, label: 'Available floor', value: '5' },
-        { icon: <FaBullseye />, label: 'Currently vacant', value: '4' },
+        { icon: <FaUsers />, label: 'Sharing', value: bl.sharing },
+        { icon: <FaBuilding />, label: 'No of floors', value: bl.totalFloors },
+        { icon: <FaCheckCircle />, label: 'Total rooms', value: bl.totalRooms },
+        { icon:<FaBuilding /> ,label: 'Vacant Rooms', value:bl.totalVacantRooms},
     ];
 
     return (

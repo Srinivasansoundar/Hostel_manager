@@ -4,6 +4,7 @@ const mongoose=require("mongoose")
 const dotenv=require("dotenv")
 const studentRoutes=require("./routes/student")
 const authroutes=require("./routes/authroutes")
+const bookRoutes=require("./routes/bookRoutes")
 dotenv.config();
 //  console.log(process.env.MONGO)
 mongoose
@@ -17,6 +18,7 @@ mongoose
 app.use(express.json())
 // app.use(express.urlencoded)
 app.use("/student",studentRoutes)
+app.use('/api/student', bookRoutes);
 app.use("/api",authroutes)
 
 

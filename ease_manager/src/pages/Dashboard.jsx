@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useContext,useEffect} from 'react'
 import { Sidebar, Navbar, TextInput, Button, Avatar, Carousel } from "flowbite-react";
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { useSelector} from 'react-redux';
 import { AiOutlineSearch } from 'react-icons/ai'
+import { DataContext } from '../Datacontext';
 import "../styles/sidebar.css"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Cardslider from '../Components/Cardslider';
 import Block from '../Components/Block';
 const Dashboard = () => {
+  // const { data } = useContext(DataContext);
+  const {currentUser}=useSelector((state) => state.user) 
+  // const {rest,availableBlocks}=data
+  // console.log(currentUser.availableBlocks);
+  // useEffect(() => {
+  //   console.log('Data has changed:', rest);
+  // }, [data]); // Logs whenever `data` changes
+   console.log(currentUser)
   return (
     <header className="flex">
       <div className=' side sidebar block  w-1/5 h-screen border-2'>
@@ -58,9 +68,9 @@ const Dashboard = () => {
             </div>
             <div>
               <a href="/Waiting_list">
-              <Button color="blue" className='rounded'>
-                 Waiting List
-              </Button>
+                <Button color="blue" className='rounded'>
+                  Waiting List
+                </Button>
               </a>
             </div>
             <hr className='hr' />
@@ -83,8 +93,11 @@ const Dashboard = () => {
         <div className="App">
           <Cardslider />
         </div>
-        <Block/>
-        <Block/>
+        {currentUser.availableBlocks.map((i,ind)=>(
+          <Block key={ind} b={i}/>
+        ))}
+        {/* <Block />
+        <Block /> */}
       </div>
     </header>
 
