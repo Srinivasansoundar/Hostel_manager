@@ -39,12 +39,6 @@ const bookRoom = async (req, res) => {
           if (!block) {
             return res.status(404).json({ message: `Block with name ${blockName} not found` });
           }
-        //   if (block.totalVacantRooms<= 0) {
-        //     return res.status(400).json({ message: `No available rooms on  of block ${blockName}` });
-        //   }
-        //   block.totalRooms-=1;
-        //   console.log('Block ID:', block._id);
-        //   console.log('Floor Number:', floorNumber);
         const floor = await Floor.findOne({ blockId:block._id, floorNumber});
         // console.log('Found Floor:', floor);
 

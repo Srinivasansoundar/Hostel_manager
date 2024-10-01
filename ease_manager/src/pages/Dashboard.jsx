@@ -17,7 +17,7 @@ const Dashboard = () => {
   // useEffect(() => {
   //   console.log('Data has changed:', rest);
   // }, [data]); // Logs whenever `data` changes
-   console.log(currentUser)
+   //console.log(currentUser)
   return (
     <header className="flex">
       <div className=' side sidebar block  w-1/5 h-screen border-2'>

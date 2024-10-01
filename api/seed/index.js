@@ -34,7 +34,7 @@ const seedStudents = async () => {
       mongoose.disconnect();
     }
   };
-//   seedStudents();
+ seedStudents();
 const seedBlocks = async () => {
     try {
       await Block.deleteMany({});
@@ -72,4 +72,4 @@ const seedFloors = async () => {
       mongoose.disconnect();
     }
   };
-  seedFloors();
+  // seedFloors();

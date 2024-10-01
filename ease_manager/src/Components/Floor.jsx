@@ -1,16 +1,26 @@
 import React,{} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'flowbite-react'
+import { useSelector } from 'react-redux';
 function Floor({fl,blo}) {
-  const navigate=useNavigate();
-  const handleClick=()=>{
-    navigate("/booking_form", { state:{
-        floorData:fl,
-        blockData:blo
-    }});
-
-  }
-  console.log(fl)
+  const { currentUser } = useSelector((state) => state.user); 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    // Check if the user has an allocated block
+    console.log(currentUser.rest.block)
+    if (currentUser.rest.block) {
+      // If block is allocated, alert the user
+      alert(`You are already allocated to block: ${currentUser.rest.block}. You can't book again.`);
+    } else {
+   
+      navigate("/booking_form", {
+        state: {
+          floorData: fl, 
+          blockData: blo  
+        }
+      });
+    }
+  };
   return (
     <div className=' flex justify-around items-center border-2 mt-3 p-2 shadow-md'>
         <div>

@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../styles/book.css';
@@ -13,7 +13,7 @@ const BookingForm = () => {
     const [roommateLoading, setRoommateLoading] = useState([]);
     const [error, setError] = useState('');
     const location = useLocation();
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     const { currentUser } = useSelector((state) => state.user)
     const { floorData, blockData } = location.state;
     const { floorNumber } = floorData
@@ -82,12 +82,18 @@ const BookingForm = () => {
             if (!response.ok) {
                 throw new Error(`Roommate with roll number ${roommateRollNumbers[index]} not found`);
             }
+
             const data = await response.json();
-            setRoommatesData((prevRoommatesData) => {
-                const updatedRoommatesData = [...prevRoommatesData];
-                updatedRoommatesData[index] = data;
-                return updatedRoommatesData;
-            });
+
+            if (data.block) {
+                alert(`Roommate with roll number ${roommateRollNumbers[index]} is already allocated to block: ${data.block}.`);
+            } else {
+                setRoommatesData((prevRoommatesData) => {
+                    const updatedRoommatesData = [...prevRoommatesData];
+                    updatedRoommatesData[index] = data;
+                    return updatedRoommatesData;
+                });
+            }
         } catch (err) {
             setError(err.message);
         }
@@ -122,43 +128,6 @@ const BookingForm = () => {
                 return; // Stop further execution
             }
             if (res.ok) {
-                // const availableBlocks = currentUser.availableBlocks;
-                // const updateBlockByName = (blockName, newVacantRooms) => {
-                //     const updatedBlocks = availableBlocks.map(block => {
-                //         if (block.blockName === blockName) {
-                //             return {
-                //                 ...block, // Copy existing properties
-                //                 totalVacantRooms: newVacantRooms // Modify the totalVacantRooms property
-                //             };
-                //         }
-                //         return block; // Return unchanged block if blockName doesn't match
-                //     });
-
-                //     // Update the currentUser availableBlocks with the modified blocks array
-                    
-                // };
-
-                // // updateBlockByName(data.blockName,data.totalVacantRooms); 
-                // const floors = currentUser.availableBlocks.floors;
-                // const updateFloorByNumber = (floorNumber, newAvailableRooms) => {
-                //     const updatedFloors = floors.map(floor => {
-                //         if (floor.floorNumber === floorNumber) {
-                //             return {
-                //                 ...floor,
-                //                 availableRooms: newAvailableRooms
-                //             };
-                //         }
-                //         return floor;
-                //     });
-                //     currentUser.availableBlocks.floors = updatedFloors;
-                // };
-                // // updateFloorByNumber(data.floorNumber, data.availableRooms);
-                // dispatch(updateAvailableBlocks({
-                //     ...availableBlocks,
-                //     blocks: updateBlockByName,
-                //     floors: updateFloorByNumber
-                // }));
-                // navigate('/dashboard');
                 // ------------------
                 const availableBlocks = currentUser.availableBlocks;
 
@@ -167,12 +136,12 @@ const BookingForm = () => {
                     if (block.blockName === data.blockName) {
                         return {
                             ...block, // Copy existing properties
-                            totalVacantRooms:block.totalVacantRooms-1 // Update specific field
+                            totalVacantRooms: block.totalVacantRooms - 1 // Update specific field
                         };
                     }
                     return block; // Keep other blocks unchanged
                 });
-    
+
                 // Update the floor within the updatedBlocks for the relevant block
                 const updatedFloors = updatedBlocks.map(block => {
                     if (block.blockName === data.blockName) {
@@ -191,10 +160,10 @@ const BookingForm = () => {
                     }
                     return block; // Keep other blocks unchanged
                 });
-    
+
                 // Dispatch the updated availableBlocks
                 dispatch(updateAvailableBlocks(updatedFloors));
-    
+
                 // Navigate to the dashboard
                 navigate('/dashboard');
             }
