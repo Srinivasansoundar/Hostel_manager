@@ -51,7 +51,7 @@ module.exports.signin = async (req, res, next) => {
             availableBlocks[i] = block;
         }
 
-        console.log(availableBlocks);
+        // console.log(availableBlocks);
         const token = jwt.sign({ id: validStudent._id }, process.env.JWT_SECRET);
         const { password: pass, ...rest } = validStudent._doc;
         res.status(200).cookie('access_token', token, { httpOnly: true }).json({ rest, availableBlocks });

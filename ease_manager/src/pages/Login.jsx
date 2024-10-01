@@ -17,7 +17,7 @@ export default function Login() {
     }
     try{
      dispatch(signInStart())
-    const res=await fetch('/api/signin',{
+     const res=await fetch('/api/signin',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(formData)
@@ -43,7 +43,7 @@ export default function Login() {
    
   }
 
-  //console.log(formData)
+  // console.log(formData)
   return (
     <div className="flex h-screen">
       <div className="w-1/2 flex flex-col items-center justify-center bg-white text-center">
