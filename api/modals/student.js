@@ -8,7 +8,8 @@ const studentSchema = new mongoose.Schema({
     block: String,
     floor: String,
     roommates: [String],
-    password: String // hashed password
+    password: String,// hashed password
+    
   });
 const Student=mongoose.model("Student",studentSchema);
 module.exports= Student;

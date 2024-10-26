@@ -5,6 +5,7 @@ const dotenv=require("dotenv")
 const studentRoutes=require("./routes/student")
 const authroutes=require("./routes/authroutes")
 const bookRoutes=require("./routes/bookRoutes")
+const adminRoutes=require("./routes/adminRoutes")
 dotenv.config();
 //  console.log(process.env.MONGO)
 mongoose
@@ -19,8 +20,8 @@ app.use(express.json())
 // app.use(express.urlencoded)
 app.use("/student",studentRoutes)
 app.use('/api/student', bookRoutes);
-app.use("/api",authroutes)
-
+app.use("/api/student",authroutes)
+app.use("/api/admin",adminRoutes)
 
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode || 500;

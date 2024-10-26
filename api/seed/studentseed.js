@@ -8,7 +8,7 @@ module.exports = [
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_1"
+      password: "hashed_password_1",
     },
     {
       name: "Bob Smith",
@@ -19,7 +19,8 @@ module.exports = [
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_2"
+      password: "hashed_password_2",
+
     },
     {
       name: "Charlie Brown",
@@ -30,29 +31,31 @@ module.exports = [
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_3"
+      password: "hashed_password_3",
     },
     {
       name: "David Lee",
-      year: 2,
-      rollNumber: "23N104",
-      department: "Civil",
+      year: 3,
+      rollNumber: "22N104",
+      department: "CIVIL",
       roomNumber: "",
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_4"
+      password: "hashed_password_4",
+
     },
     {
       name: "Eva Green",
-      year: 2,
-      rollNumber: "23N105",
+      year: 3,
+      rollNumber: "22N105",
       department: "CSE",
       roomNumber: "",
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_5"
+      password: "hashed_password_5",
+
     },
     {
       name: "Frank Martin",
@@ -63,34 +66,37 @@ module.exports = [
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_6"
+      password: "hashed_password_6",
+
     },
     {
       name: "Grace Kim",
-      year: 4,
-      rollNumber: "21N107",
+      year: 3,
+      rollNumber: "22N107",
       department: "CSE",
       roomNumber: "",
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_7"
+      password: "hashed_password_7",
+      
     },
     {
       name: "Henry Park",
-      year: 4,
-      rollNumber: "21N108",
-      department: "Civil",
+      year: 3,
+      rollNumber: "22N108",
+      department: "CIVIL",
       roomNumber: "",
       block: "",
       floor: "",
       roommates: [],
-      password: "hashed_password_8"
+      password: "hashed_password_8",
+      
     },
     {
       name: "Isabella Turner",
-      year: 3,
-      rollNumber: "22N109",
+      year: 2,
+      rollNumber: "23N109",
       department: "CSE",
       roomNumber: "",
       block: "",
@@ -102,7 +108,7 @@ module.exports = [
       name: "Jack Williams",
       year: 2,
       rollNumber: "23N110",
-      department: "Civil",
+      department: "CIVIL",
       roomNumber: "",
       block: "",
       floor: "",
@@ -111,8 +117,8 @@ module.exports = [
     },
     {
       name: "Kevin Adams",
-      year: 4,
-      rollNumber: "21N111",
+      year: 2,
+      rollNumber: "23N111",
       department: "CSE",
       roomNumber: "",
       block: "",
@@ -122,8 +128,8 @@ module.exports = [
     },
     {
       name: "Lily James",
-      year: 4,
-      rollNumber: "21N112",
+      year: 2,
+      rollNumber: "23N112",
       department: "IT",
       roomNumber: "",
       block: "",
@@ -133,9 +139,9 @@ module.exports = [
     },
     {
       name: "Michael Scott",
-      year: 3,
-      rollNumber: "22N113",
-      department: "Civil",
+      year: 2,
+      rollNumber: "23N113",
+      department: "CIVIL",
       roomNumber: "",
       block: "",
       floor: "",
@@ -155,8 +161,8 @@ module.exports = [
     },
     {
       name: "Oliver Queen",
-      year: 4,
-      rollNumber: "21N115",
+      year: 2,
+      rollNumber: "23N115",
       department: "CSE",
       roomNumber: "",
       block: "",
@@ -166,8 +172,8 @@ module.exports = [
     },
     {
       name: "Peter Parker",
-      year: 2,
-      rollNumber: "23N116",
+      year: 4,
+      rollNumber: "21N116",
       department: "CSE",
       roomNumber: "",
       block: "",
@@ -177,8 +183,8 @@ module.exports = [
     },
     {
       name: "Quinn Foster",
-      year: 3,
-      rollNumber: "22N117",
+      year: 4,
+      rollNumber: "21N117",
       department: "IT",
       roomNumber: "",
       block: "",
@@ -199,9 +205,9 @@ module.exports = [
     },
     {
       name: "Steve Rogers",
-      year: 2,
-      rollNumber: "23N119",
-      department: "Civil",
+      year: 4,
+      rollNumber: "21N119",
+      department: "CIVIL",
       roomNumber: "",
       block: "",
       floor: "",

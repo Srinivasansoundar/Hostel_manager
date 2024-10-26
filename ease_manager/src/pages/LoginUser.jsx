@@ -4,7 +4,7 @@ import {Button,Alert,Spinner} from "flowbite-react"
 import { useDispatch,useSelector} from 'react-redux';
 import { signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice';
 // import { DataContext } from '../Datacontext';
-export default function Login() {
+export default function LoginUser() {
   // const { data,setData } = useContext(DataContext);
   const [formData,setFormData]=useState({});
   const dispatch=useDispatch()
@@ -17,7 +17,7 @@ export default function Login() {
     }
     try{
      dispatch(signInStart())
-     const res=await fetch('/api/signin',{
+     const res=await fetch('/api/student/signin',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(formData)
@@ -30,7 +30,7 @@ export default function Login() {
     if(res.ok){
       // setData(data);
       dispatch(signInSuccess(data));
-      navigate('/dashboard')
+      navigate('/dashboard?tab=dashboard')
     }
   }
   catch(err){
@@ -49,13 +49,13 @@ export default function Login() {
       <div className="w-1/2 flex flex-col items-center justify-center bg-white text-center">
         <h2 className="text-3xl font-bold mt-8 ml-44">Welcome!</h2>
         <h3 className="text-2xl mt-1 ml-44">Login to your account</h3>
-        <img src="./src/images/login_img.png" alt="login_img" className="max-w-full h-auto mt-5 ml-44" />
+        <img src="./login_img.png" alt="login_img" className="max-w-full h-auto mt-5 ml-44" />
       </div>
 
       <form className="w-1/2 flex items-center justify-center" onSubmit={handleSubmit}>
         <div className="border border-gray-200 p-12 mx-16 h-96 flex flex-col items-center justify-center shadow-md w-96">
           <div className="flex items-center justify-center mb-5">
-            <img src="./src/images/PSG_img.png" alt="pst_img" className="w-12 h-auto mr-2" />
+            <img src="./PSG_img.png" alt="pst_img" className="w-12 h-auto mr-2" />
             <h1 className="text-xl text-darkblue font-bold m-0">PSG INSTITUTION</h1>
           </div>
           

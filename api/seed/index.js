@@ -7,6 +7,7 @@ const students=require("./studentseed")
 const blocks=require("./blockseed")
 const Block=require("../modals/block")
 const Floor=require("../modals/floor")
+const Admin=require("../modals/admin")
 dotenv.config({path:'../.env'})
 mongoose
   .connect(process.env.MONGO)
@@ -20,6 +21,25 @@ const hashPassword = async (rollNumber) => {
     const saltRounds = 10; 
     return await bcrypt.hash(rollNumber, saltRounds);
   };
+  const seedAdmin = async () => {
+    try {
+      await Admin.deleteMany({});
+      // for (let student of students) {
+      //   student.password = await hashPassword(student.rollNumber); 
+      // }
+      const admin=new Admin({
+        username:"Srini", 
+        password:await hashPassword("srini")
+      })
+      await admin.save()
+      console.log("Admin data with hashed passwords seeded successfully");
+      mongoose.disconnect();
+    } catch (error) {
+      console.error("Error seeding student data:", error);
+      mongoose.disconnect();
+    }
+  };
+  // seedAdmin()
 const seedStudents = async () => {
     try {
       await Student.deleteMany({});
@@ -34,7 +54,7 @@ const seedStudents = async () => {
       mongoose.disconnect();
     }
   };
- seedStudents();
+//  seedStudents();
 const seedBlocks = async () => {
     try {
       await Block.deleteMany({});
