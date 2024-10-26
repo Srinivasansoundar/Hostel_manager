@@ -9,7 +9,7 @@ const studentSchema = new mongoose.Schema({
     floor: String,
     roommates: [String],
     password: String,// hashed password
-    
+    contact:Number,
   });
 const Student=mongoose.model("Student",studentSchema);
 module.exports= Student;

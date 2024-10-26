@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-
+import { useSelector} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const WaitingList = () => {
-  const [waitingList, setWaitingList] = useState([]);
-  const [formVisible, setFormVisible] = useState(false);
+  const { currentUser } = useSelector((state) => state.user)
+  const navigate=useNavigate()
+  const [filled, setFilled] = useState(false);
+
   const [formData, setFormData] = useState({
-    name: '',
-    contact: '',
-    floor: '1',
+    rollnumber: currentUser.rest.rollNumber,
+    contact: currentUser.rest.contact,
+    block: '',
   });
 
   const handleAddClick = () => {
+
     setFormVisible(true);
   };
 
@@ -20,38 +24,62 @@ const WaitingList = () => {
       [name]: value,
     }));
   };
+  // console.log(formData)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setWaitingList([...waitingList, formData]);
-    setFormData({
-      name: '',
-      contact: '',
-      floor: '1',
-    });
-    setFormVisible(false);
-  };
 
-  const handleRemove = (index) => {
-    const updatedList = waitingList.filter((_, i) => i !== index);
-    setWaitingList(updatedList);
-  };
+    // Send POST request to server
+    try {
+      const response = await fetch('/api/waiting/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-  return (
-    <div className="container" style={styles.container}>
-      <h2 style={styles.h2}>Waiting List</h2>
-      <button onClick={handleAddClick} style={styles.button}>Add Waiting List</button>
+      if (!response.ok) {
+        throw new Error('Failed to add to waiting list');
+      }
 
-      {formVisible && (
+      // Optionally, handle response from the server
+      const result = await response.json();
+      setFormData({
+        rollnumber: currentUser.rest.rollNumber,
+        contact: currentUser.rest.contact,
+        block: '',
+      });
+      navigate("/dashboard?tab=dashboard")
+      // console.log('Server response:', result);
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+    // Clear form data
+    
+    na
+  }
+
+    // const handleRemove = (index) => {
+    //   const updatedList = waitingList.filter((_, i) => i !== index);
+    //   setWaitingList(updatedList);
+    // };
+
+    return (
+      <div className="container" style={styles.container}>
+        <h2 style={styles.h2}>Waiting List</h2>
+        {/* <button onClick={handleAddClick} style={styles.button}>Add Waiting List</button> */}
         <div style={styles.addForm}>
           <form onSubmit={handleSubmit}>
             <div className="form-group" style={styles.formGroup}>
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name">Roll number:</label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                id="rollnumber"
+                name="rollnumber"
+                value={currentUser.rest.rollNumber}
                 onChange={handleInputChange}
                 required
                 style={styles.input}
@@ -63,47 +91,46 @@ const WaitingList = () => {
                 type="number"
                 id="contact"
                 name="contact"
-                value={formData.contact}
+                value={currentUser.rest.contact}
                 onChange={handleInputChange}
                 required
                 style={styles.input}
               />
             </div>
             <div className="form-group" style={styles.formGroup}>
-              <label htmlFor="floor">Floor no:</label>
+              <label htmlFor="floor">Block name:</label>
               <select
-                id="floor"
-                name="floor"
-                value={formData.floor}
+                id="block"
+                name="block"
+                value={formData.block}
                 onChange={handleInputChange}
                 style={styles.input}
               >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="A Block">A</option>
+                <option value="B Block">B</option>
+                <option value="C Block">C</option>
+                <option value="G3 Block">G3</option>
               </select>
             </div>
             <button type="submit" style={styles.submitButton}>Submit</button>
           </form>
         </div>
-      )}
 
-      <table style={styles.table}>
+        {/* <table style={styles.table}>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Roll number</th>
             <th>Contact</th>
-            <th>Floor no:</th>
+            <th>Block name:</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {waitingList.map((item, index) => (
             <tr key={index}>
-              <td>{item.name}</td>
+              <td>{item.rollnumber}</td>
               <td>{item.contact}</td>
-              <td>{item.floor}</td>
+              <td>{item.block}</td>
               <td>
                 <button
                   onClick={() => handleRemove(index)}
@@ -115,10 +142,10 @@ const WaitingList = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-    </div>
-  );
-};
+      </table> */}
+      </div>
+    );
+  };
 
 const styles = {
   container: {

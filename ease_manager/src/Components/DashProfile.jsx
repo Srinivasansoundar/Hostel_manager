@@ -54,6 +54,17 @@ function DashProfile() {
                         readOnly
                     />
                 </div>
+                <div>
+                    <Label htmlFor="contact" value="Contact" />
+                    <TextInput
+                        type="number"
+                        id="contact"
+                        placeholder="contact"
+                        defaultValue={currentUser.rest.contact}
+                        className="rounded-none"
+                        readOnly
+                    />
+                </div>
 
                 {/* Year */}
                 <div>

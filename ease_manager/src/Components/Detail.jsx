@@ -3,7 +3,8 @@ import { Banner, Button } from "flowbite-react";
 import { HiX } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 function Detail({name}) {
-    const n="sr"
+    // const n="sr"
+    // console.log(name)
   return (
     <div className=' w-8/12 mx-auto '>
         <div className='flex justify-between border-2 rounded-lg shadow-sm px-7 py-3 mt-2'>
@@ -14,7 +15,7 @@ function Detail({name}) {
             </Link>
             </div>
             <div className='bg-amber-400 border-2  rounded-lg py-1 px-2'>
-            <Link className=''>
+            <Link to={`/waitingstudent/${name}`} className=''>
                 <span>Waiting Students</span>
             </Link>
             </div> 

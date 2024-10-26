@@ -13,6 +13,7 @@ import AdminPage from "./pages/AdminPage"
 import AllotedStudent from "./pages/AllotedStudent"
 import ViewBlocks from "./pages/ViewBlocks"
 import Complaints from "./pages/Complaints"
+import Waitingadmin from "./pages/Waitingadmin"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 function App() {
@@ -35,7 +36,7 @@ function App() {
       <Route path="/booking_form" element ={<BookingForm/>}/>  
       <Route path="/Waiting_list" element ={<WaitingList/>}/>  
       <Route path='/complaints' element={<Complaints/>}/>
-
+      <Route path='/waitingstudent/:blockName' element={<Waitingadmin/>}/>
       {/* <Route path="/room_allocation" element ={<SignIn/>}/> */}
     </Routes>
     </BrowserRouter>
