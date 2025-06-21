@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Table } from 'flowbite-react'
+import AdminNavbar from '../Components/AdminNavbar';
 function AllotedStudent() {
   const { blockName } = useParams();
   // console.log(blockName)
@@ -36,7 +37,10 @@ function AllotedStudent() {
   }
   console.log(data)
   return (
+    <div>
+      <AdminNavbar/>
     <div className='flex flex-col justify-center items-center h-screen'>
+      
       <h1 className='text-2xl font-semibold mb-4'>Alloted student of {blockName}</h1>
       <div className="overflow-x-auto w-9/12">
         <Table striped>
@@ -75,6 +79,7 @@ function AllotedStudent() {
 
         </Table>
       </div>
+    </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import AdminNavbar from '../Components/AdminNavbar';
 function AdminComplaints() {
   const [complaints, setComplaints] = useState([]);
 
@@ -21,7 +21,8 @@ function AdminComplaints() {
   }, []);
 
   return (
-    <div className="p-6 font-sans bg-gray-100 min-h-screen">
+    <div className=" font-sans bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <AdminNavbar/>
       <h1 className="text-3xl font-bold text-center text-gray-700 mb-8">Admin Complaints Dashboard</h1>
       <div className="grid grid-cols-2 gap-2">
         {complaints.map((complaint) => (

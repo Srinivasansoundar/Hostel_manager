@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Navbar } from "flowbite-react";
 function AdminNavbar() {
   return (
-    <Navbar  className='bg-slate-100'fluid rounded>
+    <Navbar  className='bg-slate-300'fluid rounded>
       <Navbar.Brand href="">
         {/* <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" /> */}
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Admin</span>
@@ -12,7 +12,7 @@ function AdminNavbar() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#">
+        <Navbar.Link href="/adminpage">
           Home
         </Navbar.Link>
         <Navbar.Link href="admin/complaints">Complaints</Navbar.Link>
