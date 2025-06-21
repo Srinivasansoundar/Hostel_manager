@@ -92,4 +92,4 @@ const seedFloors = async () => {
       mongoose.disconnect();
     }
   };
-  seedFloors();
+  // seedFloors();

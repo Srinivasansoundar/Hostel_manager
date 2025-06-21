@@ -27,20 +27,25 @@ function Floor({ fl, blo }) {
     }
   };
   return (
-    <div className=' flex justify-around items-center border-2 mt-3 p-2 shadow-md'>
-      <div>
-        <h2 className='text-lg font-semibold text-gray-600'>FLOOR NO {fl.floorNumber}</h2>
+    <div className=' flex justify-around items-center border-2 border-blue-200 mb-1 mt-3 p-2 shadow-md flex-wrap  md:flex-nowrap md:w-[500px] lg:w-[600px] bg-white'>
+      <div className='flex flex-1 justify-around items-center gap-1 md:flex-nowrap'>
+        <div>
+          <h2 className=' text-xs sm:text-sm lg:text-lg font-semibold text-gray-600'>FLOOR NO {fl.floorNumber}</h2>
+        </div>
+        <div>
+          <h3 className='text-xs sm:text-sm lg:text-lg font-semibold text-gray-600'>No of rooms:{fl.totalRooms}</h3>
+        </div>
       </div>
-      <div>
-        <h3 className='font-semibold text-gray-600'>No of rooms:{fl.totalRooms}</h3>
-      </div>
-      <div>
-        <h3 className='font-semibold text-gray-600'>No of vacants:{fl.availableRooms}</h3>
-      </div>
-      <div>
-        <Button color="blue" className='rounded' onClick={handleClick}>
-          Book
-        </Button>
+      <div className='flex flex-1 justify-around items-center gap-1 md:flex-nowrap'>
+        <div>
+          <h3 className='text-xs sm:text-sm lg:text-lg font-semibold text-gray-600'>No of vacants:{fl.availableRooms}</h3>
+        </div>
+
+        <div>
+          <Button  className=' rounded text-xs md:text-sm lg:text-md' onClick={handleClick}>
+            Book
+          </Button>
+        </div>
       </div>
     </div>
   )

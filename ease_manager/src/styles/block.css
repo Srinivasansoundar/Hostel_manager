@@ -1,28 +1,9 @@
-.ca img{
-    height:150px !important;
-    
+.scroll-container {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
 }
-.ca{
-    position: relative !important;
-    height: 320px !important;
-    width:300px !important;
-}
-.bp{
-    height: 320px !important;
-}
-.Bl{
-  margin-top: 3em !important;
-  padding: 0.5em !important;
-  width:fit-content;
-  margin: 0 auto;
-  /* height:fit-content !important; */
 
-}
-.lef{
-    width:20%;
-}
-.r{
-     /* position: absolute; */
-     /* left:45%; */
-     margin-left:20px !important;
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }

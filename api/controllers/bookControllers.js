@@ -14,7 +14,8 @@ const getStudentByRollNumber = async (req, res) => {
     if (!student) {
       return res.status(404).json({ message: 'Student not found' });
     }
-    res.json(student);
+    const {password:pass, ...rest}=student._doc;
+    res.json(rest);
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
   }

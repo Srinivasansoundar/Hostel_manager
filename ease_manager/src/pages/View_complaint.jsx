@@ -1,107 +1,98 @@
-import React, { useState } from 'react';
-
-function ViewComplaints({ complaints, onClose }) {
-  const [selectedStatus, setSelectedStatus] = useState({});
-
-  const handleStatusUpdate = (id, status) => {
-    setSelectedStatus((prevStatus) => ({
-      ...prevStatus,
-      [id]: status,
-    }));
+import React,{useState,useEffect} from 'react'
+import { useSelector } from 'react-redux';
+function View_complaint() {
+  const [complaints, setComplaints] = useState([]);
+  const {currentUser}=useSelector(state=>state.user)
+  // console.log(currentUser.rest)
+  const handleUpdate = async () => {
+    try {
+      const response = await fetch(`/api/complaint/delete/${currentUser.rest.rollNumber}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        // Handle successful response, maybe refresh data or show a success message
+        setComplaints((prevComplaints) =>
+          prevComplaints.filter((complaint) => complaint.rollNo !== currentUser.rest.rollNumber)
+        );
+        console.log('Complaint status updated successfully');
+      } else {
+        console.error('Failed to update complaint');
+      }
+    } catch (error) {
+      console.error('Error updating complaint:', error);
+    }
   };
+  useEffect(() => {
+    const fetchComplaints = async () => {
+      try {
+        const response = await fetch(`/api/complaint/get/${currentUser.rest.rollNumber}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch complaints");
+        }
+        const data = await response.json();
+        setComplaints(data);
+      } catch (error) {
+        console.error('Error fetching complaints:', error);
+      }
+    };
 
+    fetchComplaints();
+  }, []);
   return (
-    <div className="fixed inset-0 bg-gray-700 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white w-11/12 max-w-5xl p-6 overflow-x-auto whitespace-nowrap rounded-md shadow-lg relative">
-        <h2 className="text-2xl font-semibold mb-4 text-center">View Complaints</h2>
-        <button
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-          onClick={onClose}
+    <div className="p-6 font-sans w-8/12 translate-x-32 mx-auto min-h-screen">
+    <h1 className="text-3xl font-bold text-center text-gray-700 mb-8">Complaints</h1>
+    <div className="grid grid-cols-1 w-full gap-2">
+      {complaints.map((complaint,index) => (
+        <div
+          key={complaint._id}
+          className="bg-white w-full shadow-md rounded-md p-6 border border-gray-200"
         >
-          ✕
-        </button>
-        
-        {/* Horizontal scrolling section */}
-        <div className="flex overflow-x-auto space-x-4 py-4">
-          {complaints.map((complaint) => (
-            <div
-              key={complaint.id}
-              className="flex-shrink-0 bg-gray-100 p-4 w-72 border border-gray-300 rounded-md"
-            >
-              <h3 className="font-bold text-lg mb-2">Problem Description</h3>
-              <p className="text-gray-700 mb-4">{complaint.problemDescription}</p>
-              
-              <div className="mb-4">
-                <h4 className="font-semibold">Status:</h4>
-                <p
-                  className={`inline-block px-3 py-1 mt-1 text-sm rounded-full ${
-                    complaint.status === 'Submitted'
-                      ? 'bg-yellow-200 text-yellow-800'
-                      : 'bg-blue-200 text-blue-800'
-                  }`}
-                >
-                  {complaint.status}
-                </p>
-              </div>
-
-              <div className="mb-4">
-                <h4 className="font-semibold mb-1">Update Status:</h4>
-                <button
-                  className={`px-3 py-1 mr-2 rounded-md ${
-                    selectedStatus[complaint.id] === 'Completed'
-                      ? 'bg-green-500 text-white'
-                      : 'bg-gray-200 text-gray-800'
-                  }`}
-                  onClick={() => handleStatusUpdate(complaint.id, 'Completed')}
-                >
-                  Completed
-                </button>
-                <button
-                  className={`px-3 py-1 rounded-md ${
-                    selectedStatus[complaint.id] === 'Not Completed'
-                      ? 'bg-red-500 text-white'
-                      : 'bg-gray-200 text-gray-800'
-                  }`}
-                  onClick={() => handleStatusUpdate(complaint.id, 'Not Completed')}
-                >
-                  Not Completed
-                </button>
-              </div>
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">{complaint.name}</h2>
+          <div className='flex flex-col  '>
+            <div className='flex gap-2 mb-2'>
+              <h1 className='w-6/12 font-semibold'>Roll No:</h1>
+              <p className="w-6/12 text-sm text-gray-600">{complaint.rollNo}</p>
             </div>
-          ))}
+            <div className='flex gap-2 mb-2'>
+              <h1 className='w-6/12 font-semibold'>Block:</h1>
+              <p className=" w-6/12 text-sm text-left text-gray-600">{complaint.blockNo}, Floor: {complaint.floorNo}</p>
+            </div>
+            <div className='flex gap-2 mb-2'>
+              <h1 className='w-6/12 font-semibold'>Room No:</h1>
+              <p className="w-6/12 text-sm text-gray-600">{complaint.roomNo}</p>
+            </div>
+            <div className='flex gap-2 mb-2'>
+              <h1 className='w-6/12 font-semibold'>Contact:</h1>
+              <p className=" w-6/12 text-sm text-gray-600">{complaint.contactNo}</p>
+            </div>
+            <div className='flex gap-2 mb-2'>
+              <h1 className='w-6/12 font-semibold'>Description:</h1>
+              <p className="w-6/12 text-sm text-gray-600">{complaint.problemDescription}</p>
+            </div>
+
+            <p className="text-sm flex justify-around text-center p-2 font-medium">
+              <span className={
+                `px-3 py-1 rounded-md 
+              ${complaint.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                  complaint.status === 'onprogress' ? 'bg-blue-100 text-blue-800' :
+                    'bg-green-100 text-green-800'}`
+              }>
+                {complaint.status.charAt(0).toUpperCase() + complaint.status.slice(1)}
+              </span>
+              <span>
+                   <button className='bg-green-400 p-2' onClick={handleUpdate}>Update status</button>
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
-  );
+  </div>
+  )
 }
 
-function App() {
-  const [showPopup, setShowPopup] = useState(false);
-
-  const sampleComplaints = [
-    { id: 1, problemDescription: 'Leaky faucet in room 101', status: 'Submitted' },
-    { id: 2, problemDescription: 'No hot water in shower', status: 'In Progress' },
-    { id: 3, problemDescription: 'Air conditioning not working', status: 'Submitted' },
-    // Add more complaints as needed
-  ];
-
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <button
-        className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-        onClick={() => setShowPopup(true)}
-      >
-        View Complaints
-      </button>
-
-      {showPopup && (
-        <ViewComplaints
-          complaints={sampleComplaints}
-          onClose={() => setShowPopup(false)}
-        />
-      )}
-    </div>
-  );
-}
-
-export default App;
+export default View_complaint

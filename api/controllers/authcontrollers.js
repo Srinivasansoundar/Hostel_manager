@@ -9,7 +9,6 @@ dotenv.config();
 
 module.exports.signin = async (req, res, next) => {
     const { rollnum, password } = req.body;
-    
     if (!rollnum || !password || rollnum === '' || password === '') {
         return next(errorHandler(400, "All fields are required"));
     }
@@ -35,7 +34,7 @@ module.exports.signin = async (req, res, next) => {
         }
 
         const availableBlocks = await getAvailableBlocks(validStudent.year, validStudent.department);
-
+        // console.log(availableBlocks)
         for (let i = 0; i < availableBlocks.length; i++) {
             const block = availableBlocks[i];
             const floors = await Floor.find({ blockId: block._id });

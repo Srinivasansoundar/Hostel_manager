@@ -27,67 +27,71 @@ function DashProfile() {
         }
     };
     return (
-        <div className='max-w-lg mx-auto p-2  w-full'>
+        <div className=' mx-auto p-2  w-full sm:w-[40%]  min-h-screen'>
             <h1 className='my-7 text-center font-semibold text-3xl'>Profile</h1>
-            <form action="" className='flex flex-col gap-4 '>
+            <form action="" className='flex flex-col items-center gap-y-4 m-3  '>
                 {/* Username */}
-                <div>
-                    <Label htmlFor="username" value="Username" />
-                    <TextInput
+                {/* <input type="file" accept='image/*' /> */}
+                <div className='w-full flex justify-center'>
+                    <img src={currentUser.profileImage || '../public/user.png'} alt="profile image" className='w-36 h-36' />
+                </div>
+                <div className='flex flex-col gap-y-1 w-full'>
+                    <label for="username" className='font-sans text-sm md:text-md lg:text-xl ' >Username</label>
+                    <input
                         type="text"
                         id="username"
                         placeholder="username"
                         defaultValue={currentUser.rest.name}
                         readOnly
-                        className="rounded-none"  // Remove border-radius using Tailwind's rounded-none class
+                        className="rounded-md text-sm md:text-md "  // Remove border-radius using Tailwind's rounded-none class
                     />
                 </div>
                 {/* Roll Number */}
-                <div>
-                    <Label htmlFor="email" value="Roll Number" />
-                    <TextInput
+                <div className='flex flex-col gap-y-1 w-full'>
+                    <label for="email" className='font-sans text-sm md:text-md lg:text-xl'>Roll Number</label>
+                    <input
                         type="email"
                         id="email"
                         placeholder="rollNumber"
                         defaultValue={currentUser.rest.rollNumber}
-                        className="!rounded-none "
+                        className="rounded-md text-sm md:text-md"
                         readOnly
                     />
                 </div>
-                <div>
-                    <Label htmlFor="contact" value="Contact" />
-                    <TextInput
+                <div className='flex flex-col gap-y-1 w-full '>
+                    <label for="contact" className='font-sans text-sm md:text-md lg:text-xl'>Contact</label>
+                    <input
                         type="number"
                         id="contact"
                         placeholder="contact"
                         defaultValue={currentUser.rest.contact}
-                        className="rounded-none"
+                        className="rounded-md text-sm md:text-md  "
                         readOnly
                     />
                 </div>
 
                 {/* Year */}
-                <div>
-                    <Label htmlFor="year" value="Year" />
-                    <TextInput
+                <div className='flex flex-col gap-y-1 w-full '>
+                    <label for="year" className='font-sans text-sm md:text-md lg:text-xl'>Year</label>
+                    <input
                         type="text"
                         id="year"
                         placeholder="year"
                         defaultValue={currentUser.rest.year}
-                        className="rounded-none"
+                        className="rounded-md text-sm md:text-md  "
                         readOnly
                     />
                 </div>
 
                 {/* Department */}
-                <div>
-                    <Label htmlFor="department" value="Department" />
-                    <TextInput
+                <div className='flex flex-col gap-y-1 w-full '>
+                    <label for="department" className='font-sans text-sm md:text-md lg:text-xl'>Department</label>
+                    <input
                         type="text"
                         id="department"
                         placeholder="department"
                         defaultValue={currentUser.rest.department}
-                        className="rounded-none"
+                        className="rounded-md text-sm md:text-md "
                         readOnly
                     />
                 </div>
@@ -95,9 +99,11 @@ function DashProfile() {
                 {/* <TextInput type='text' id='password' placeholder="password" /> */}
 
             </form>
-            <Button className='mt-5' onClick={handleSignout} gradientDuoTone='purpleToBlue'>
-                sign out
-            </Button>
+            <div className='flex m-3 '>
+                <button onClick={handleSignout} className='bg-red-500 py-2 px-4 mt-5 w-full rounded-md hover:bg-red-700 text-sm md:text-md'>
+                    sign out
+                </button>
+            </div>
             {/* <div className="text-red-500 flex justify-center mt-5">
                 <span className='cursor-pointer'>Sign Out</span>
             </div> */}

@@ -7,6 +7,7 @@ const authroutes=require("./routes/authroutes")
 const bookRoutes=require("./routes/bookRoutes")
 const adminRoutes=require("./routes/adminRoutes")
 const waitingRoutes=require("./routes/waitingRoutes")
+const getComplaint=require("./routes/complaintRoutes")
 dotenv.config();
 //  console.log(process.env.MONGO)
 mongoose
@@ -24,6 +25,7 @@ app.use('/api/student', bookRoutes);
 app.use("/api/student",authroutes)
 app.use("/api/admin",adminRoutes)
 app.use("/api/waiting",waitingRoutes)
+app.use("/api/complaint",getComplaint)
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode || 500;
     const message=err.message || "Internal Server Error";

@@ -5,7 +5,7 @@ function Waitingadmin() {
     const { blockName } = useParams();
     const [waitingList, setWaitingList] = useState([]);
 
-    console.log(blockName)
+    // console.log(blockName)
     useEffect(() => {
         // Fetch the waiting list for the specified blockname
         const fetchWaitingList = async () => {
@@ -17,7 +17,7 @@ function Waitingadmin() {
             }
     
             const data = await response.json();
-            console.log(data)
+            // console.log(data)
             setWaitingList(data);
           } catch (error) {
             console.error('Error fetching waiting list:', error);

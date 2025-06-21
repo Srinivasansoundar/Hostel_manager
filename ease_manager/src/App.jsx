@@ -1,5 +1,5 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-import './App.css'
+// import './App.css'
 import Dashboard from "./pages/Dashboard"
 import LoginUser from "./pages/LoginUser"
 import LoginAdmin from "./pages/LoginAdmin"
@@ -12,8 +12,8 @@ import PrivateRoutes from "./Components/PrivateRoutes"
 import AdminPage from "./pages/AdminPage"
 import AllotedStudent from "./pages/AllotedStudent"
 import ViewBlocks from "./pages/ViewBlocks"
-import Complaints from "./pages/Complaints"
 import Waitingadmin from "./pages/Waitingadmin"
+import AdminComplaints from "./pages/AdminComplaints"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 function App() {
@@ -35,8 +35,9 @@ function App() {
       <Route path="/Member_details_3" element ={<Member_details_3/>}/>  
       <Route path="/booking_form" element ={<BookingForm/>}/>  
       <Route path="/Waiting_list" element ={<WaitingList/>}/>  
-      <Route path='/complaints' element={<Complaints/>}/>
       <Route path='/waitingstudent/:blockName' element={<Waitingadmin/>}/>
+      <Route path='/admin/complaints' element={<AdminComplaints/>}/>
+      
       {/* <Route path="/room_allocation" element ={<SignIn/>}/> */}
     </Routes>
     </BrowserRouter>

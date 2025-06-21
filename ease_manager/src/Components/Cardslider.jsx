@@ -5,10 +5,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import "../styles/slider.css"
 const Card = ({ image, title, date, description }) => {
   return (
-    <div className=" sli flex h-50  bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="h-30   md:w-[65%] lg:w-[75%] xl:w-[85%] mx-auto sli flex   bg-white shadow-md rounded-lg overflow-hidden">
       {/* Left Side: Image */}
-      <div className="w-1/3">
-        <img src={image} alt={title} className="card w-full h-30 object-cover" />
+      <div className="w-1/2">
+        <img src={image} alt={title} className="card w-full h-25 object-fill" />
       </div>
       
       {/* Right Side: Content */}

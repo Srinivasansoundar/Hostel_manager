@@ -1,29 +1,104 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 function Complaints() {
-  const [formData, setFormData] = useState({
-    name: '',
-    rollNo: '',
-    blockNo: '',
-    floorNo: '',
-    roomNo: '',
-    contactNo: '',
-    problemDescription: '',
-  });
+  const {currentUser}=useSelector(state=>state.user)
+  const {rest}=currentUser
+//   console.log(currentUser)
+    const [detail,setDetail]=useState({
+        name:'',
+        rollno:'',
+        block:'',
+        floor:'',
+        roomno:'',
+        contact:''
+    })
+ useEffect(()=>{
+    const fetchStudent=async()=>{
+        try{
+            const response=await fetch(`/api/student/${rest.rollNumber}`);
+            if(!response.ok){
+                throw new Error('Failed to fetch student details');
+            }
+            const data=await response.json();   
+            console.log(data)
+            setDetail({
+                name:data.name,
+                rollno:data.rollNumber,
+                block:data.block,
+                floor:data.floor,
+                roomno:data.roomNumber,
+                contact:data.contact
 
+            })
+            
+        }
+        catch(err){
+            console.error('Error fetching waiting list:',err)
+        }
+    };
+    fetchStudent();
+ },[rest.rollNumber])
+//  console.log(detail)
+//  useEffect(() => {
+//     // console.log("Updated detail:", detail);
+// }, [detail]);
+const [formData, setFormData] = useState({
+    name: "",
+    rollNo: "",
+    blockNo: "",
+    floorNo: "",
+    roomNo: "",
+    contactNo: "",
+    problemDescription: ""
+  });
+  
+  // Initialize formData based on detail whenever detail changes
+  useEffect(() => {
+    setFormData({
+      name: detail?.name || "",
+      rollNo: detail?.rollno || "",
+      blockNo: detail?.block || "",
+      floorNo: detail?.floor || "",
+      roomNo: detail?.roomno || "",
+      contactNo: detail?.contact || "",
+      problemDescription: ""
+    });
+  }, [detail]);
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name)
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted', formData);
-  };
+    try {
+        // Send form data to the backend
+        const response = await fetch('/api/complaint/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ...formData,
+                status: "pending" // Initial status can be set as pending
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to submit complaint");
+        }
+
+        const result = await response.json();
+        console.log('Form submitted successfully:', result);
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
+};
+
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center translate-x-full justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 shadow-lg w-full max-w-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">Complaints Form</h2>
         <form onSubmit={handleSubmit}>
@@ -32,10 +107,11 @@ function Complaints() {
             <input
               type="text"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              value={detail.name}
+            //   onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
               required
+              readOnly
             />
           </div>
           <div className="mb-4">
@@ -43,10 +119,11 @@ function Complaints() {
             <input
               type="text"
               name="rollNo"
-              value={formData.rollNo}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              value={detail.rollno}
+            //   onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
               required
+              readOnly
             />
           </div>
           
@@ -57,10 +134,11 @@ function Complaints() {
               <input
                 type="text"
                 name="blockNo"
-                value={formData.blockNo}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                value={detail.block}
+                // onChange={handleChange}
+                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
                 required
+                readOnly
               />
             </div>
             <div>
@@ -68,10 +146,11 @@ function Complaints() {
               <input
                 type="text"
                 name="floorNo"
-                value={formData.floorNo}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                value={detail.floor}
+                // onChange={handleChange}
+                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
                 required
+                readOnly
               />
             </div>
             <div>
@@ -79,10 +158,11 @@ function Complaints() {
               <input
                 type="text"
                 name="roomNo"
-                value={formData.roomNo}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                value={detail.roomno}
+                // onChange={handleChange}
+                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
                 required
+                readOnly
               />
             </div>
           </div>
@@ -92,10 +172,11 @@ function Complaints() {
             <input
               type="text"
               name="contactNo"
-              value={formData.contactNo}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              value={detail.contact}
+            //   onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
               required
+              readOnly
             />
           </div>
           <div className="mb-6">
@@ -105,7 +186,7 @@ function Complaints() {
               value={formData.problemDescription}
               onChange={handleChange}
               maxLength="500"
-              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
               rows="4"
               placeholder="Describe your problem here (max 500 words)"
               required

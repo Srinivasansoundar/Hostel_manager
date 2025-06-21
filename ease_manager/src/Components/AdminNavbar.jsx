@@ -12,10 +12,10 @@ function AdminNavbar() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
+        <Navbar.Link href="#">
           Home
         </Navbar.Link>
-        <Navbar.Link href="#">Complaints</Navbar.Link>
+        <Navbar.Link href="admin/complaints">Complaints</Navbar.Link>
         <Navbar.Link href="#">Feedback</Navbar.Link>
         <Navbar.Link href="/">Sign out</Navbar.Link>
         {/* <Navbar.Link href="#">Pricing</Navbar.Link>

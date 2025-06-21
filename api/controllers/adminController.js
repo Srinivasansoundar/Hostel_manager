@@ -88,6 +88,7 @@ module.exports.editBlock=async(req,res,next)=>{
     const blockid=block._id;
     let { sharing, yearRestrictions, departmentRestrictions, sharedBlock } = req.body;
     // console.log(departmentRestrictions)
+    yearRestrictions = yearRestrictions.split(',').map(dept => dept.trim());
     departmentRestrictions = departmentRestrictions.split(',').map(dept => dept.trim());
     const updatedBlock = await Block.findByIdAndUpdate(
       blockid,
