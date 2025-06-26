@@ -1,4 +1,4 @@
-import Waiting from "../modals/waiting"
+import Waiting from "../modals/waiting.js"
 module.exports.waiting=async(req,res,next)=>{
    const {rollnumber,contact,block}=req.body;
    const waiting = new Waiting({
