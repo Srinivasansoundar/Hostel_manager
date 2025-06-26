@@ -8,7 +8,7 @@ import Block from "../modals/block.js";
 import { errorHandler } from "../utils/errorhandler.js";
 dotenv.config();
 
-module.exports.signin = async (req, res, next) => {
+export const signin = async (req, res, next) => {
     const { rollnum, password } = req.body;
     if (!rollnum || !password || rollnum === '' || password === '') {
         return next(errorHandler(400, "All fields are required"));
@@ -60,7 +60,7 @@ module.exports.signin = async (req, res, next) => {
         next(err);
     }
 };
-module.exports.signout=async(req,res,next)=>{
+export const signout=async(req,res,next)=>{
     try {
         res
           .clearCookie('access_token')

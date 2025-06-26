@@ -1,5 +1,5 @@
 import Complaint from "../modals/complaint.js"
-module.exports.addComplaints=async(req,res,next)=>{
+export const addComplaints=async(req,res,next)=>{
     try {
         const { name, rollNo, blockNo, floorNo, roomNo, contactNo, problemDescription, status } = req.body;
         
@@ -25,7 +25,7 @@ module.exports.addComplaints=async(req,res,next)=>{
     }
 
 }
-module.exports.getComplaints=async (req,res,next)=>{
+export const getComplaints=async (req,res,next)=>{
     try {
         const complaints = await Complaint.find({status:'pending'}); // Fetch all complaints from the database
         res.status(200).json(complaints);
@@ -34,7 +34,7 @@ module.exports.getComplaints=async (req,res,next)=>{
         res.status(500).json({ message: 'Failed to retrieve complaints' });
       }
 }
-module.exports.getComplaintByrollNumber=async (req,res,next)=>{
+export const getComplaintByrollNumber=async (req,res,next)=>{
     const {rollNumber}=req.params
     try {
         const complaints = await Complaint.find({rollNo:rollNumber,status:'pending'}); // Fetch all complaints from the database
@@ -44,7 +44,7 @@ module.exports.getComplaintByrollNumber=async (req,res,next)=>{
         res.status(500).json({ message: 'Failed to retrieve complaints' });
       }
 }
-module.exports.deleteComplaint=async(req,res,next)=>{
+export const deleteComplaint=async(req,res,next)=>{
     const { rollNumber } = req.params;
 
 try {

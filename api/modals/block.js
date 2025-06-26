@@ -9,4 +9,4 @@ const blockSchema = new mongoose.Schema({
     sharedBlock: { type: Boolean, default: false }
   });
   const Block=mongoose.model("Block",blockSchema)
-  module.exports=Block
+export default Block

@@ -12,4 +12,4 @@ const studentSchema = new mongoose.Schema({
     contact:Number,
   });
 const Student=mongoose.model("Student",studentSchema);
-module.exports= Student;
+export default Student

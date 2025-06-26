@@ -6,4 +6,4 @@ const waitingSchema = new mongoose.Schema({
     
   });
   const Waiting=mongoose.model("Waiting",waitingSchema)
-  module.exports=Waiting
+export default Waiting

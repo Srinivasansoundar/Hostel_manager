@@ -4,4 +4,4 @@ const adminSchema=new mongoose.Schema({
     password:String,
 })
 const Admin=mongoose.model("Admin",adminSchema)
-module.exports=Admin
+export default Admin

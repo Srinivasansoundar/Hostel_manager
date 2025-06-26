@@ -8,4 +8,4 @@ const floorSchema = new mongoose.Schema({
 });
 
 const Floor = mongoose.model('Floor', floorSchema);
-module.exports = Floor;
+export default Floor

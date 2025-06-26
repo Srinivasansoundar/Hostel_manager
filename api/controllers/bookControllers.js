@@ -110,7 +110,7 @@ const bookRoom = async (req, res) => {
   // res.json({message:"successfull"})
 };
 
-module.exports = {
+export{
   getStudentByRollNumber,
   bookRoom,
 };

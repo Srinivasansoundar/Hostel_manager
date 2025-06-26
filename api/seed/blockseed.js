@@ -1,4 +1,4 @@
-module.exports= [
+const blocks= [
     {
       blockName: "C Block",
       sharing: 4,
@@ -34,4 +34,4 @@ module.exports= [
       sharedBlock: false
     },
   ];
-  
+  export default blocks

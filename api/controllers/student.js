@@ -1,3 +1,3 @@
-module.exports.dashboard=async(req,res,next)=>{
-    res.send("Student dashboard")
-}
+export const dashboard = async (req, res, next) => {
+  res.send("Student dashboard");
+};

@@ -10,4 +10,4 @@ router.post("/add",addComplaints)
 router.get("/get",getComplaints)
 router.get("/get/:rollNumber",getComplaintByrollNumber)
 router.delete('/delete/:rollNumber',deleteComplaint)
-module.exports=router
+export default router;

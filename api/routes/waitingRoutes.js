@@ -5,4 +5,4 @@ import { waiting, waitingStduent } from '../controllers/waitingController.js';
 const router=express.Router()
 router.post("/add",waiting)
 router.get("/get/:blockName",waitingStduent)
-module.exports=router
+export default router;

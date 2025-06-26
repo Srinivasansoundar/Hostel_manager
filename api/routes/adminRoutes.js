@@ -6,4 +6,4 @@ router.post("/signin",signin)
 router.get('/allotedStudent/:blockName',allotedStudent)
 router.get('/viewblock/:blockName',viewBlock)
 router.put('/editBlock/:blockName',editBlock)
-module.exports=router
+export default router;

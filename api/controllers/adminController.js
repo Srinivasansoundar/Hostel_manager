@@ -6,7 +6,7 @@ import { errorHandler } from "../utils/errorhandler.js";
 // const jwt = require("jsonwebtoken");
 // const dotenv = require("dotenv");
 // dotenv.config();
-module.exports.signin = async (req, res, next) => {
+export const signin = async (req, res, next) => {
   const { username, password } = req.body
   if (!username || !password || username === '' || password === '') {
     return next(errorHandler(400, "All fields are required"));
@@ -28,7 +28,7 @@ module.exports.signin = async (req, res, next) => {
     next(err);
   }
 }
-module.exports.allotedStudent = async (req, res, next) => {
+export const allotedStudent = async (req, res, next) => {
   try {
     const { blockName } = req.params;
 
@@ -66,7 +66,7 @@ module.exports.allotedStudent = async (req, res, next) => {
     res.status(500).json({ message: 'An error occurred while fetching students' });
   }
 }
-module.exports.viewBlock = async (req, res, next) => {
+export const viewBlock = async (req, res, next) => {
   try {
     const blockName = req.params.blockName;
     const block = await Block.findOne({blockName});
@@ -80,7 +80,7 @@ module.exports.viewBlock = async (req, res, next) => {
     res.status(500).json({ message: 'Error fetching block' });
   }
 }
-module.exports.editBlock=async(req,res,next)=>{
+export const editBlock=async(req,res,next)=>{
   try {
     const blockName = req.params.blockName;
     const block = await Block.findOne({blockName});

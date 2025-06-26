@@ -10,4 +10,4 @@ router.get('/:rollNumber', getStudentByRollNumber);
 // Route to book a room with roommates
 router.post('/book', bookRoom);
 
-module.exports = router;
+export default router;

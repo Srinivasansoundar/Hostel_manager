@@ -1,4 +1,4 @@
-module.exports = [
+const students = [
   {
     name: "Alice Johnson",
     year: 3,
@@ -240,3 +240,4 @@ module.exports = [
     contact: 9876543229
   }
 ];
+export default students

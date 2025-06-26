@@ -1,5 +1,5 @@
 import Waiting from "../modals/waiting.js"
-module.exports.waiting=async(req,res,next)=>{
+export const waiting=async(req,res,next)=>{
    const {rollnumber,contact,block}=req.body;
    const waiting = new Waiting({
     rollNumber:rollnumber,
@@ -10,7 +10,7 @@ module.exports.waiting=async(req,res,next)=>{
 //    console.log(data)
    res.json(data)
 }
-module.exports.waitingStduent=async(req,res,next)=>{
+export const waitingStduent=async(req,res,next)=>{
     try {
         const { blockName } = req.params;
         
