@@ -1,8 +1,8 @@
-const bcryptjs = require("bcryptjs");
-const Admin = require("../modals/admin")
-const Block = require("../modals/block")
-const Student = require("../modals/student")
-const { errorHandler } = require("../utils/errorhandler");
+import bcryptjs from "bcryptjs";
+import Admin from "../modals/admin.js";
+import Block from "../modals/block.js";
+import Student from "../modals/student.js";
+import { errorHandler } from "../utils/errorhandler.js";
 // const jwt = require("jsonwebtoken");
 // const dotenv = require("dotenv");
 // dotenv.config();

@@ -1,6 +1,6 @@
 // routes/studentRoutes.js
-const express = require('express');
-const { getStudentByRollNumber, bookRoom } = require('../controllers/bookControllers');
+import express from 'express';
+import { getStudentByRollNumber, bookRoom } from '../controllers/bookControllers.js';
 
 const router = express.Router();
 

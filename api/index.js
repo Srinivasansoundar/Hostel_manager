@@ -1,14 +1,16 @@
-const express=require("express")
-const app=express()
-const mongoose=require("mongoose")
-const dotenv=require("dotenv")
-const studentRoutes=require("./routes/student")
-const authroutes=require("./routes/authroutes")
-const bookRoutes=require("./routes/bookRoutes")
-const adminRoutes=require("./routes/adminRoutes")
-const waitingRoutes=require("./routes/waitingRoutes")
-const getComplaint=require("./routes/complaintRoutes")
-const path=require('path')
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import path from "path";
+
+import studentRoutes from "./routes/student.js";
+import authroutes from "./routes/authroutes.js";
+import bookRoutes from "./routes/bookRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
+import waitingRoutes from "./routes/waitingRoutes.js";
+import getComplaint from "./routes/complaintRoutes.js";
+
+const app = express();
 dotenv.config();
 //  console.log(process.env.MONGO)
 mongoose

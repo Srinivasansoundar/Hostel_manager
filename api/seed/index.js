@@ -1,13 +1,14 @@
 // Function to hash passwords
-const mongoose=require("mongoose")
-const bcrypt=require("bcryptjs")
-const dotenv=require("dotenv")
-const Student=require("../modals/student")
-const students=require("./studentseed")
-const blocks=require("./blockseed")
-const Block=require("../modals/block")
-const Floor=require("../modals/floor")
-const Admin=require("../modals/admin")
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+import dotenv from "dotenv";
+
+import Student from "../modals/student.js";
+import students from "./studentseed.js";
+import blocks from "./blockseed.js";
+import Block from "../modals/block.js";
+import Floor from "../modals/floor.js";
+import Admin from "../modals/admin.js";
 dotenv.config({path:'../.env'})
 mongoose
   .connect(process.env.MONGO)

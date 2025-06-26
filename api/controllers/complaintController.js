@@ -1,4 +1,4 @@
-const Complaint=require("../modals/complaint")
+import Complaint from "../modals/complaint"
 module.exports.addComplaints=async(req,res,next)=>{
     try {
         const { name, rollNo, blockNo, floorNo, roomNo, contactNo, problemDescription, status } = req.body;

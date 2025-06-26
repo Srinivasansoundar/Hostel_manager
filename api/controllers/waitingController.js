@@ -1,4 +1,4 @@
-const Waiting=require("../modals/waiting")
+import Waiting from "../modals/waiting"
 module.exports.waiting=async(req,res,next)=>{
    const {rollnumber,contact,block}=req.body;
    const waiting = new Waiting({

@@ -1,10 +1,11 @@
-const bcryptjs = require("bcryptjs");
-const Student = require("../modals/student");
-const Floor = require("../modals/floor");
-const Block = require("../modals/block");
-const { errorHandler } = require("../utils/errorhandler");
-const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
+import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+import Student from "../modals/student.js";
+import Floor from "../modals/floor.js";
+import Block from "../modals/block.js";
+import { errorHandler } from "../utils/errorhandler.js";
 dotenv.config();
 
 module.exports.signin = async (req, res, next) => {

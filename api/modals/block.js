@@ -1,4 +1,4 @@
-const mongoose=require("mongoose")
+import mongoose from 'mongoose';
 const blockSchema = new mongoose.Schema({
     blockName: { type: String, required: true },
     sharing: { type: Number, required: true },  // 2-sharing, 3-sharing, etc.

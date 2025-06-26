@@ -1,6 +1,10 @@
-const express=require("express")
-const {getComplaints,addComplaints,getComplaintByrollNumber,deleteComplaint}=require("../controllers/complaintController")
-
+import express from "express";
+import {
+  getComplaints,
+  addComplaints,
+  getComplaintByrollNumber,
+  deleteComplaint
+} from "../controllers/complaintController.js";
 const router=express.Router()
 router.post("/add",addComplaints)
 router.get("/get",getComplaints)

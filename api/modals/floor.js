@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const floorSchema = new mongoose.Schema({
   blockId: { type: mongoose.Schema.Types.ObjectId, ref: 'Block', required: true },

@@ -1,7 +1,7 @@
 // controllers/studentController.js
-const Student = require('../modals/student');
-const Block = require("../modals/block")
-const Floor = require("../modals/floor")
+import Student from "../modals/student.js";
+import Block from "../modals/block.js";
+import Floor from "../modals/floor.js";
 // Function to get student by roll number
 const getStudentByRollNumber = async (req, res) => {
   try {
