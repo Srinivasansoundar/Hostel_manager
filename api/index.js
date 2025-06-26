@@ -8,6 +8,7 @@ const bookRoutes=require("./routes/bookRoutes")
 const adminRoutes=require("./routes/adminRoutes")
 const waitingRoutes=require("./routes/waitingRoutes")
 const getComplaint=require("./routes/complaintRoutes")
+const path=require('path')
 dotenv.config();
 //  console.log(process.env.MONGO)
 mongoose
@@ -18,6 +19,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+const __dirname=path.resolve();
+app.use(express.static(path.join(__dirname,'/ease_manager/dist')));
 app.use(express.json())
 // app.use(express.urlencoded)
 app.use("/student",studentRoutes)
@@ -37,6 +40,9 @@ app.use((err,req,res,next)=>{
   })
 app.get("/admin/dashboard",(req,res)=>{
     res.send("Admin page")
+})
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'ease_manager','dist','index.html'))
 })
 app.listen(3000,(req,res)=>{
     console.log("LISTENING TO PORT 3000")
